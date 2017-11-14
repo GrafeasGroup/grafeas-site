@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title><% if current_page.data.title %><%= current_page.data.title %> | <% end %><%= config[:site_name] || 'My Site' %></title>
+    <%= stylesheet_link_tag 'index.bundle' %>
+    <%= javascript_include_tag 'head.bundle' %>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-3 cell">
+          <figure><!-- TODO: insert logo --></figure>
+          <h1><%= config[:site_name] || 'My Site' %></h1>
+        </div>
+        <div class="large-9 cell">
+          <span><%= phone_number('5551234567', linkify: true) %></span>
+          <span>Free Consultation!</span>
+          <!-- -->
+        </div>
+        <div class="large-12 cell">
+          <menu>
+            <li><%= link_to 'Home', 'index.html' %></li>
+            <li><%= link_to 'About', 'about.html' %></li>
+            <li><%= link_to 'Services', 'services.html' %></li>
+            <li><%= link_to 'Contact Me', 'contact.html' %></li>
+          </menu>
+        </div>
+      </div>
+
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'index.bundle' %>
+  </body>
+</html>
