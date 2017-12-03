@@ -8,35 +8,36 @@
     <%= stylesheet_link_tag 'index.bundle' %>
     <%= javascript_include_tag 'head.bundle' %>
   </head>
-  <body class="<%= page_classes %>">
-    <div class="grid-container fluid">
-      <div class="grid-x grid-padding-x">
-        <div class="large-3 cell">
-          <figure><!-- TODO: insert logo --></figure>
-          <h1><%= config[:site_name] || 'My Site' %></h1>
-        </div>
-        <div class="large-9 cell">
-          <span><%= phone_number('5551234567', linkify: true) %></span>
-          <span>Free Consultation!</span>
-          <!-- -->
-        </div>
-        <div class="large-12 cell">
-          <menu>
-            <li><%= link_to 'Home', 'index.html' %></li>
-            <li><%= link_to 'About', 'about.html' %></li>
-            <li><%= link_to 'Services', 'services.html' %></li>
-            <li><%= link_to 'Contact Me', 'contact.html' %></li>
-          </menu>
-        </div>
-      </div>
+  <body class="<%= page_classes %> grid-container fluid">
+    <header id="site-header" class="grid-x grid-padding-x align-middle">
+      <figure class="large-1 small-4 cell"><%= image_tag 'logo.svg', width: '100px', height: '100px', alt: 'Logo' %></figure>
+      <h1 class="large-auto small-8 cell">
+        <%= config[:site_name] %>
+      </h1>
+      <section class="large-3 small-12 cell call-out">
+        <span><%= phone_number('5551234567', linkify: true) %></span>
+        <span>Call now!</span>
+      </section>
+    </header>
+    <nav id="main-nav" class="grid-x grid-padding-x">
+      <li class="large-auto medium-3 small-6 cell"><%= link_to 'Home', 'index.html' %></li>
+      <li class="large-auto medium-3 small-6 cell"><%= link_to 'About', 'about.html' %></li>
+      <li class="large-auto medium-3 small-6 cell"><%= link_to 'Services', 'services.html' %></li>
+      <li class="large-auto medium-3 small-6 cell"><%= link_to 'Contact Us', 'contact.html' %></li>
+    </nav>
 
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
+    <%= yield %>
+
+    <footer id="site-footer" class="grid-x grid-padding-x align-middle">
+      <nav class="links large-auto cell">
+        <li><%= link_to 'Home', 'index.html' %></li>
+        <li><%= link_to 'About', 'about.html' %></li>
+        <li><%= link_to 'Services', 'services.html' %></li>
+        <li><%= link_to 'Contact Me', 'contact.html' %></li>
+      </nav>
+    </footer>
 
     <%= javascript_include_tag 'index.bundle' %>
+    <%= yield_content :js_assets %>
   </body>
 </html>

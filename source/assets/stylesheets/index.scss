@@ -1,1 +1,24 @@
 @import "foundation";
+
+#site-header {
+  .logo, h1 {
+    display: inline-block;
+  }
+}
+
+#main-nav {
+  list-style: none;
+
+  & > li {
+    list-style: none;
+    text-align: center;
+  }
+}
+
+#site-footer > nav {
+  list-style: none;
+
+  & > li {
+    list-style: none;
+  }
+}
