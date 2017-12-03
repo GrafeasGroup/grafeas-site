@@ -1,0 +1,11 @@
+<header id="site-header" class="grid-x grid-padding-x align-middle">
+  <figure class="logo large-1 small-4 cell">
+    <%= image_tag 'logo.svg', width: '100px', height: '100px', alt: 'Logo' %>
+  </figure>
+  <h1 class="site-name large-auto small-8 cell">
+    <%= config[:site_name] %>
+  </h1>
+  <section class="call-out large-3 small-12 cell">
+    <p><%= phone_number('5551234567', linkify: true) %> Call now!</p>
+  </section>
+</header>

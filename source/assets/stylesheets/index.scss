@@ -1,24 +1,63 @@
 @import "foundation";
 
 #site-header {
-  .logo, h1 {
-    display: inline-block;
+  .logo img {
+    background-color: #FFF !important; // the SVG is transparent
+    border-radius: 6rem;
   }
-}
 
-#main-nav {
-  list-style: none;
-
-  & > li {
-    list-style: none;
+  .call-out {
+    padding: 1.5rem 0;
     text-align: center;
   }
 }
 
-#site-footer > nav {
-  list-style: none;
+#main-nav {
+  a {
+    text-align: center;
+    background-color: #EEE;
+    border: thin solid #DDD;
 
-  & > li {
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+#site-footer {
+  font-size: 0.8rem;
+  color: #AAA;
+
+  h1 {
+    font-size: 1.1rem;
+    color: #999;
+  }
+}
+
+// Sitemap
+#site-footer > nav {
+  ul {
     list-style: none;
   }
+
+  li {
+    list-style: none;
+
+    &:hover a, &:focus a {
+      font-weight: bold;
+    }
+  }
+
+  a {
+    color: #AAA;
+    text-decoration: underline;
+
+    &:hover, &:focus {
+      font-weight: bold;
+    }
+  }
+}
+
+#content {
+  margin: 1rem 0;
 }
