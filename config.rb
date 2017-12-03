@@ -1,16 +1,6 @@
 ENV['WEBPACK_ENV'] ||= (build? ? 'build' : 'development')
 
 # Time.zone = "UTC"
-activate :external_pipeline,
-         name: :webpack,
-         command: if build?
-                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --bail -p"
-                  else
-                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color"
-                  end,
-         source: '.tmp/dist',
-         latency: 1
-
 set :markdown_engine, :redcarpet
 set :markdown,
     layout_engine: :erb,
@@ -36,9 +26,6 @@ configure :build do
   set :port, nil
 
   set :google_analytics_id, 'UA-xxxxxxxx-x'
-
-  activate :asset_hash, ignore: [/^serviceworker.js/, /touch-icon.*png/]
-  activate :gzip, exts: %w(.js .css .html .htm .svg .ttf .otf .woff .eot)
 end
 
 configure :development do
@@ -49,26 +36,28 @@ configure :development do
   set :google_analytics_id, 'UA-xxxxxxxx-x'
 end
 
+activate :external_pipeline,
+         name: :webpack,
+         command: if build?
+                    "WEBPACK_ENV=build ./node_modules/webpack/bin/webpack.js --bail -p"
+                  else
+                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color"
+                  end,
+         source: '.tmp/dist',
+         latency: 2
+
 ###
 # Page options, layouts, aliases and proxies
 ###
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
+page '/*.css', layout: false
+page '/*.js', layout: false
 
 ###
 # Helpers
 ###
-
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
 
 # rubocop:disable Metrics/BlockLength
 helpers do

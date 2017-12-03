@@ -8,8 +8,8 @@
     <%= stylesheet_link_tag 'index.bundle' %>
     <%= javascript_include_tag 'head.bundle' %>
   </head>
-  <body>
-    <div class="grid-container">
+  <body class="<%= page_classes %>">
+    <div class="grid-container fluid">
       <div class="grid-x grid-padding-x">
         <div class="large-3 cell">
           <figure><!-- TODO: insert logo --></figure>
