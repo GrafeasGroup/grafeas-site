@@ -1,15 +1,28 @@
 ---
-title: Home
+title: News
 ---
 
-<h1>This is my homepage</h1>
+<h1>News</h1>
 
-<p><%= lorem.paragraph %></p>
+<article>
+  <header>
+    <h1>New site!</h1>
+  </header>
 
-<p><%= lorem.paragraph %></p>
+  <p>As of <time datetime="2017-12-03">December 3, 2017</time>, we have a custom-made website, courtesy of <%= link_to '@thelonelyghost', 'https://github.com/thelonelyghost' %>. A lot of work went into it, so here's a rundown of what improvements have been packed in:</p>
 
-<p><%= lorem.paragraph %></p>
+  <h2>Accessibility</h2>
 
-<p><%= lorem.paragraph %></p>
+  <p>While we aren't completely <%= link_to 'Section 508', 'http://www.section508.gov/content/learn' %> compliant, we have been making a lot of improvements to the way our content is tested. We have our logo as an annotated SVG and all testing on the website is done with accessibility tools such as <%= link_to 'Chromevox', 'http://www.chromevox.com/' %>, <%= link_to 'WAVE', 'http://wave.webaim.org/' %>, and <%= link_to 'Tenon', 'https://tenon.io/' %>. If we can't make our content accessible, <em>and we're the ones creating it</em>, we should give up right now.</p>
 
-<p><%= lorem.paragraph %></p>
+  <h2>Minimalistic</h2>
+
+  <p>Just because a site is accessible, doesn't mean it shouldn't also be pretty. The overarching theme lately has been to design using a flat color scheme with muted colors and slight accents where appropriate. We have also chosen to make our content responsive for a variety of screen sizes. If the content doesn't work on your mobile device or destroys the data on your mobile data plan, we have failed and need to fix that.</p>
+
+  <p>This minimal design approach also features JavaScript as an accent, not a main focus of the site. It should still function 100% with JavaScript disabled. Don't know what JavaScript is? Don't worry about it. Just know we follow web standards, which includes gracefully degrading the experience if your web browser doesn't support certain features.</p>
+
+  <h2>Static site generator</h2>
+
+  <p>Okay, this has always been the case. In this revamped version of the site, we're using a different static site generator called <%= link_to 'Middleman', 'https://www.middlemanapp.com', rel: 'nofollow' %>. It allows some nicer features to keep consistent themes and formatting on every page.</p>
+  <p>One benefit of generating a static site, as opposed to a dynamic one like <%= link_to 'WordPress', '', rel: 'nofollow' %> or <%= link_to 'WiX', '', rel: 'nofollow' %>, means we don't need to worry nearly so much about hackers attacking us. More on why this is can be found in <%= link_to 'a post by GitLab', 'https://about.gitlab.com/2016/06/03/ssg-overview-gitlab-pages-part-1-dynamic-x-static/#server-processing' %>.</p>
+</article>

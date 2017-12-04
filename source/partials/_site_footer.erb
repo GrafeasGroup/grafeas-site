@@ -2,12 +2,20 @@
   <nav class="links large-4 medium-6 small-auto cell">
     <h1>Sitemap</h1>
     <ul>
-      <li><%= link_to 'Home', 'index.html' %></li>
+      <li><%= link_to 'News', 'index.html' %></li>
       <li><%= link_to 'About', 'about.html' %></li>
       <li><%= link_to 'Services', 'services.html' %></li>
-      <li><%= link_to 'Contact Me', 'contact.html' %></li>
+      <li><%= link_to 'Contact', 'contact.html' %></li>
     </ul>
   </nav>
+  <section class="thanks large-4 medium-6 small-auto cell">
+    <h1>Special Thanks</h1>
+    <ul>
+      <li><%= link_to 'Bugsnag', 'https://www.bugsnag.com/open-source/' %> &mdash; for providing free error catching to our open source projects</li>
+      <li>Patrons who have donated (e.g., <%= link_to 'Patreon', 'https://www.patreon.com/grafeasgroup' %>) for helping to keep the lights on</li>
+      <li>The volunteers of <%= tor_link(:main) %> &mdash; we couldn't do it without your support!</li>
+    </ul>
+  </section>
   <section class="disclaimer large-4 medium-6 small-auto cell">
     <h1>Disclaimer</h1>
     <p><%= lorem.paragraph %></p>

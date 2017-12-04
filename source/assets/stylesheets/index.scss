@@ -2,7 +2,7 @@
 
 #site-header {
   .logo img {
-    background-color: #FFF !important; // the SVG is transparent
+    background-color: #FFF !important; // NOTE: The SVG is transparent, so this should never be altered unless you know exactly what you are doing!
     border-radius: 6rem;
   }
 
@@ -32,6 +32,15 @@
     font-size: 1.1rem;
     color: #999;
   }
+
+  a {
+    color: #888;
+
+    &:hover, &:focus {
+      text-decoration: underline;
+      color: $anchor-color;
+    }
+  }
 }
 
 // Sitemap
@@ -44,20 +53,28 @@
     list-style: none;
 
     &:hover a, &:focus a {
-      font-weight: bold;
-    }
-  }
-
-  a {
-    color: #AAA;
-    text-decoration: underline;
-
-    &:hover, &:focus {
-      font-weight: bold;
+      text-decoration: underline;
+      color: $anchor-color;
     }
   }
 }
 
 #content {
   margin: 1rem 0;
+
+  article {
+    font-size: 0.9rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
 }

@@ -84,6 +84,17 @@ helpers do
     (yield_content(:section) || title || '')
   end
 
+  def tor_link(section = :main)
+    case section
+    when :main
+      return link_to '/r/TranscribersOfReddit', 'https://reddit.com/r/TranscribersOfReddit'
+    when :archive
+      return link_to '/r/TranscribersOfReddit archives', 'https://reddit.com/r/ToR_Archives'
+    else
+      return tor_link(:main)
+    end
+  end
+
   def to_url(opts = {})
     Addressable::URI.new({
       scheme: config[:protocol],
