@@ -15,14 +15,14 @@ set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 
-set :site_name, 'Middleman'
+set :site_name, 'Grafeas Group'
 
 # Build-specific configuration
 configure :build do
   set :trailing_slash, false
 
   set :protocol, 'https'
-  set :host, 'www.example.com'
+  set :host, 'www.grafeas.org'
   set :port, nil
 
   set :google_analytics_id, 'UA-xxxxxxxx-x'
