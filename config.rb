@@ -39,9 +39,9 @@ end
 activate :external_pipeline,
          name: :webpack,
          command: if build?
-                    'WEBPACK_ENV=build ./node_modules/webpack/bin/webpack.js --bail -p --mode production'
+                    'WEBPACK_ENV=build ./node_modules/webpack/bin/webpack.js --bail -p'
                   else
-                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color --mode development"
+                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color"
                   end,
          source: '.tmp/dist',
          latency: 2
