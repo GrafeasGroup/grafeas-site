@@ -39,9 +39,9 @@ end
 activate :external_pipeline,
          name: :webpack,
          command: if build?
-                    "WEBPACK_ENV=build ./node_modules/webpack/bin/webpack.js --bail -p"
+                    'WEBPACK_ENV=build ./node_modules/webpack/bin/webpack.js --bail -p --mode production'
                   else
-                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color"
+                    "WEBPACK_ENV=#{ENV.fetch('WEBPACK_ENV')} ./node_modules/webpack/bin/webpack.js --watch -d --progress --color --mode development"
                   end,
          source: '.tmp/dist',
          latency: 2
@@ -87,11 +87,11 @@ helpers do
   def tor_link(section = :main)
     case section
     when :main
-      return link_to '/r/TranscribersOfReddit', 'https://reddit.com/r/TranscribersOfReddit'
+      link_to '/r/TranscribersOfReddit', 'https://reddit.com/r/TranscribersOfReddit'
     when :archive
-      return link_to '/r/TranscribersOfReddit archives', 'https://reddit.com/r/ToR_Archives'
+      link_to '/r/TranscribersOfReddit archives', 'https://reddit.com/r/ToR_Archives'
     else
-      return tor_link(:main)
+      tor_link(:main)
     end
   end
 
