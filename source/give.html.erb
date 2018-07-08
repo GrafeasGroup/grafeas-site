@@ -1,0 +1,75 @@
+---
+title: Give
+---
+
+<h1>Giving to Grafeas</h1>
+
+<p>We at Grafeas are passionate about making the world a better place, but we can't do it without your help. Our volunteers work diligently around the clock to help us get closer to this goal, but we still have operating costs that hard work cannot cover.</p>
+
+<p>Your donation to the Grafeas Group will help us further our goal of worldwide accessibility on the internet. All funding goes towards:</p>
+
+<p>
+<li>Upgrading servers</li>
+<li>Community management</li>
+<li>Outreach</li>
+<li>Forging new partnerships</li>
+</p>
+
+<p>Every dollar counts; we recommend picking the option that's best for you &mdash; if the pre-filled options don't suit your needs, please use the "Other" button. NOTE: IMPLEMENTING THE OTHER BUTTON IS A PAIN IN THE BUTT</p>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell large-auto medium-auto text-center">
+        <form action="/thanks.html" method="GET">
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="pk_test_Qgem2MtFoeRvlAqt7SQGyg2y"
+                data-image="/assets/images/logo.png"
+                data-name="Grafeas Group, Ltd."
+                data-description="Donation ($10.00)"
+                data-amount="1000">
+            </script>
+            <script>
+                //hide the stripe button, but we'll still trigger on submit
+                document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+            </script>
+            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$10 USD</button>
+        </form>
+    </div>
+    <div class="cell large-auto medium-auto text-center">
+        <form action="/thanks.html" method="GET">
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="pk_test_Qgem2MtFoeRvlAqt7SQGyg2y"
+                data-image="/assets/images/logo.png"
+                data-name="Grafeas Group, Ltd."
+                data-description="Donation ($25.00)"
+                data-amount="2500">
+            </script>
+            <script>
+                //hide the stripe button, but we'll still trigger on submit
+                document.getElementsByClassName("stripe-button-el")[1].style.display = 'none';
+            </script>
+            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$25 USD</button>
+        </form>
+    </div>
+    <div class="cell large-auto medium-auto text-center">
+        <form action="/thanks.html" method="GET">
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="pk_test_Qgem2MtFoeRvlAqt7SQGyg2y"
+                data-image="/assets/images/logo.png"
+                data-name="Grafeas Group, Ltd."
+                data-description="Donation ($50.00)"
+                data-amount="5000">
+            </script>
+            <script>
+                //hide the stripe button, but we'll still trigger on submit
+                document.getElementsByClassName("stripe-button-el")[2].style.display = 'none';
+            </script>
+            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$50 USD</button>
+        </form>
+    </div>
+</div>

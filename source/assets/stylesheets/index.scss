@@ -78,3 +78,17 @@
     }
   }
 }
+
+// This doesn't seem to be present -- it appears they removed it in one of the more recent releases.
+// Give me my rounded buttons, dammit!
+button.radius, .button.radius {
+    border-radius: 3px; }
+button.rounded, .button.rounded {
+  border-radius: 1000px; }
+
+@media screen and (max-width: 74.9375em) {
+  .button.large-down-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0; } }

@@ -6,3 +6,5 @@ build/
 /node_modules
 /.tmp
 /bin
+.idea/*
+vendor/*
