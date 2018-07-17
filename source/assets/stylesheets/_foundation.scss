@@ -6,7 +6,7 @@
 //@include foundation-grid;
 //@include foundation-flex-grid;
 
-//@include foundation-prototype-classes;
+@include foundation-prototype-classes;
 @include foundation-prototype-text-utilities;
 @include foundation-prototype-display;
 @include foundation-prototype-sizing;
@@ -46,4 +46,3 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 @include foundation-visibility-classes;
-@include foundation-float-classes;
