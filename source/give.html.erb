@@ -26,7 +26,7 @@ title: Give
 </ul>
 </p>
 
-<p>Every dollar counts; we recommend picking the option that's best for you &mdash; if the pre-filled options don't suit your needs, please contact us for more information.</p>
+<p>Every dollar counts! We recommend picking the option that's best for you &mdash; if the preset options don't suit your needs, please contact us for more information.</p>
 
 <div class="grid-x grid-padding-x">
     <div class="cell large-auto medium-auto text-center">
@@ -39,10 +39,6 @@ title: Give
                 data-name="Grafeas Group, Ltd."
                 data-description="Donation ($10.00)"
                 data-amount="1000">
-            </script>
-            <script>
-                //hide the stripe button, but we'll still trigger on submit
-                document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
             </script>
             <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$10 USD</button>
         </form>
@@ -58,10 +54,6 @@ title: Give
                 data-description="Donation ($25.00)"
                 data-amount="2500">
             </script>
-            <script>
-                //hide the stripe button, but we'll still trigger on submit
-                document.getElementsByClassName("stripe-button-el")[1].style.display = 'none';
-            </script>
             <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$25 USD</button>
         </form>
     </div>
@@ -76,11 +68,11 @@ title: Give
                 data-description="Donation ($50.00)"
                 data-amount="5000">
             </script>
-            <script>
-                //hide the stripe button, but we'll still trigger on submit
-                document.getElementsByClassName("stripe-button-el")[2].style.display = 'none';
-            </script>
             <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$50 USD</button>
         </form>
     </div>
 </div>
+<p>Looking for different amounts? We have <%= link_to 'more options located here.', 'give2.html' %> </p>
+<script>
+    Array.from(document.querySelectorAll('.stripe-button-el')).forEach(function(el) { el.style.display = 'none'; });
+</script>
