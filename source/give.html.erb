@@ -1,0 +1,78 @@
+---
+title: Give
+---
+
+<h1>Giving to Grafeas</h1>
+
+<p>We at Grafeas are passionate about making the world a better place, but we can't do it without your help. Our volunteers work diligently around the clock to help us get closer to this goal, but we still have operating costs that hard work cannot cover.</p>
+<p>Our amazing sponsors help us keep the lights on and we'd love to add you to this list. Our sponsors, both in services rendered and monetarily, include:</p>
+
+<ul>
+  <li><%= link_to 'Bugsnag', 'https://www.bugsnag.com/open-source/' %> &mdash; providing free error catching to our open source projects</li>
+  <li><%= link_to 'Cloudflare', 'https://blog.cloudflare.com/cloudflare-open-source-your-upgrade-is-on-the-house/' %> &mdash; providing a free Pro Plan for our domain</li>
+  <li><%= link_to 'Linode', 'https://www.linode.com/' %> &mdash; providing free hosting for our servers</li>
+  <li><%= link_to 'Stripe', 'https://stripe.com/' %> &mdash; special rates and great service</li>
+  <li>Patrons who have donated here and through <%= link_to 'Patreon', 'https://www.patreon.com/grafeasgroup' %></li>
+</ul>
+
+<p>Your donation to the Grafeas Group will help us further our goal of worldwide accessibility on the internet. All funding goes towards:</p>
+
+<p>
+<ul>
+    <li>Upgrading servers</li>
+    <li>Community management</li>
+    <li>Outreach</li>
+    <li>Forging new partnerships</li>
+</ul>
+</p>
+
+<p>Every dollar counts! We recommend picking the option that's best for you &mdash; if the preset options don't suit your needs, please contact us for more information.</p>
+
+<div class="grid-x grid-padding-x">
+    <div class="cell large-auto medium-auto text-center">
+        <form action="/thanks.html" method="GET">
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
+                data-image="/assets/images/logo.png"
+                data-name="Grafeas Group, Ltd."
+                data-description="Donation ($10.00)"
+                data-amount="1000">
+            </script>
+            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$10 USD</button>
+        </form>
+    </div>
+    <div class="cell large-auto medium-auto text-center">
+        <form action="/thanks.html" method="GET">
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
+                data-image="/assets/images/logo.png"
+                data-name="Grafeas Group, Ltd."
+                data-description="Donation ($25.00)"
+                data-amount="2500">
+            </script>
+            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$25 USD</button>
+        </form>
+    </div>
+    <div class="cell large-auto medium-auto text-center">
+        <form action="/thanks.html" method="GET">
+            <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
+                data-image="/assets/images/logo.png"
+                data-name="Grafeas Group, Ltd."
+                data-description="Donation ($50.00)"
+                data-amount="5000">
+            </script>
+            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$50 USD</button>
+        </form>
+    </div>
+</div>
+<p>Looking for different amounts? We have <%= link_to 'more options located here.', 'give2.html' %> </p>
+<script>
+    Array.from(document.querySelectorAll('.stripe-button-el')).forEach(function(el) { el.style.display = 'none'; });
+</script>
