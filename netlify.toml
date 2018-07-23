@@ -1,0 +1,35 @@
+[build]
+  publish = "build"
+  command = "bundle install; npm install; bundle exec middleman build"
+
+# Domain redirects
+[[redirects]]
+  from = "https://www.grafeas.group/*"
+  to = "https://www.grafeas.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://grafeas.group/*"
+  to = "https://www.grafeas.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "http://www.grafeas.group/*"
+  to = "https://www.grafeas.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "http://grafeas.group/*"
+  to = "https://www.grafeas.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "http://grafeas.org/*"
+  to = "https://www.grafeas.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://grafeas.org/*"
+  to = "https://www.grafeas.org/:splat"
+  status = 301
+  force = true
