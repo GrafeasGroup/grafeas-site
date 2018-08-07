@@ -95,6 +95,17 @@ helpers do
     end
   end
 
+  def obfuscated_email(address, mailto=true)
+    interim_address = 'spam@example.com'
+    obfuscated_address = address.tr('A-Za-z', 'N-ZA-Mn-za-m')
+
+    if mailto
+      ('<a href="mailto:%s" data-email="%s">%s</a>' % [interim_address, obfuscated_address, interim_address]).html_safe
+    else
+      ('<span class="email" data-email="%s">%s</span>' % [obfuscated_address, interim_address]).html_safe
+    end
+  end
+
   def to_url(opts = {})
     Addressable::URI.new({
       scheme: config[:protocol],
