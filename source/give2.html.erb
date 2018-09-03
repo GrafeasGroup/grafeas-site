@@ -4,94 +4,96 @@ title: Giving, the Second!
 
 <p>This is our corporate sponsor page; if the options here don't fit what you're looking for, please let us know by sending us an email at <%= obfuscated_email('donations@grafeas.org').html_safe %>.</p>
 
-<div class="grid-x grid-padding-x">
-    <div class="cell large-auto medium-auto text-center">
-        <form action="/thanks.html" method="GET">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
-                data-image="/assets/images/logo.png"
-                data-name="Grafeas Group, Ltd."
-                data-description="Donation ($100.00)"
-                data-amount="10000">
-            </script>
-            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$100 USD</button>
-        </form>
+<form id="donations" action="https://payments.grafeas.org/charge" method="POST">
+    <div class="grid-x grid-padding-x">
+        <div class="cell large-auto medium-auto text-center">
+            <input type="button" class="button large rounded bordered shadow primary large-down-expanded" id="hundred" value="$100 USD">
+        </div>
+        <div class="cell large-auto medium-auto text-center">
+            <input type="button" class="button large rounded bordered shadow primary large-down-expanded" id="hundredFifty" value="$150 USD">
+        </div>
+        <div class="cell large-auto medium-auto text-center">
+            <input type="button" class="button large rounded bordered shadow primary large-down-expanded" id="twoHundred" value="$200 USD">
+        </div>
     </div>
-    <div class="cell large-auto medium-auto text-center">
-        <form action="/thanks.html" method="GET">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
-                data-image="/assets/images/logo.png"
-                data-name="Grafeas Group, Ltd."
-                data-description="Donation ($150.00)"
-                data-amount="15000">
-            </script>
-            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$150 USD</button>
-        </form>
+    <div class="grid-x grid-padding-x">
+        <div class="cell large-auto medium-auto text-center">
+            <input type="button" class="button large rounded bordered shadow primary large-down-expanded" id="twoHundredFifty" value="$250 USD">
+        </div>
+        <div class="cell large-auto medium-auto text-center">
+            <input type="button" class="button large rounded bordered shadow primary large-down-expanded" id="fiveHundred" value="$500 USD">
+        </div>
+        <div class="cell large-auto medium-auto text-center">
+            <input type="button" class="button large rounded bordered shadow primary large-down-expanded" id="thousand" value="$1000 USD">
+        </div>
     </div>
-    <div class="cell large-auto medium-auto text-center">
-        <form action="/thanks.html" method="GET">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
-                data-image="/assets/images/logo.png"
-                data-name="Grafeas Group, Ltd."
-                data-description="Donation ($200.00)"
-                data-amount="20000">
-            </script>
-            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$200 USD</button>
-        </form>
-    </div>
-</div>
-<div class="grid-x grid-padding-x">
-    <div class="cell large-auto medium-auto text-center">
-        <form action="/thanks.html" method="GET">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
-                data-image="/assets/images/logo.png"
-                data-name="Grafeas Group, Ltd."
-                data-description="Donation ($250.00)"
-                data-amount="25000">
-            </script>
-            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$250 USD</button>
-        </form>
-    </div>
-    <div class="cell large-auto medium-auto text-center">
-        <form action="/thanks.html" method="GET">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
-                data-image="/assets/images/logo.png"
-                data-name="Grafeas Group, Ltd."
-                data-description="Donation ($500.00)"
-                data-amount="50000">
-            </script>
-            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$500 USD</button>
-        </form>
-    </div>
-    <div class="cell large-auto medium-auto text-center">
-        <form action="/thanks.html" method="GET">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_live_pRSTbdTHvPIh5i1YkXf1cmBG"
-                data-image="/assets/images/logo.png"
-                data-name="Grafeas Group, Ltd."
-                data-description="Donation ($1000.00)"
-                data-amount="100000">
-            </script>
-            <button type="submit" class="button large rounded bordered shadow primary large-down-expanded">$1000 USD</button>
-        </form>
-    </div>
-</div>
+
+    <input type="hidden" id="stripeToken" name="stripeToken" />
+    <input type="hidden" id="stripeEmail" name="stripeEmail" />
+    <input type="hidden" name="amount" id="donationAmount" value=""/>
+</form>
+
+
+
 <script>
     Array.from(document.querySelectorAll('.stripe-button-el')).forEach(function(el) { el.style.display = 'none'; });
+</script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+var handler = StripeCheckout.configure({
+    key: 'pk_live_pRSTbdTHvPIh5i1YkXf1cmBG',
+    token: function(token) {
+        // append your token id and email, submit your form
+    	$("#stripeToken").val(token.id);
+        $("#stripeEmail").val(token.email);
+        $("#donations").submit();
+    }
+  });
+
+  $('#hundred').on('click', function(e) {
+	$("#donationAmount").val("10000");
+	openCheckout("Donation ($100)", 10000);
+    e.preventDefault();
+  });
+  $('#hundredFifty').on('click', function(e) {
+    $("#donationAmount").val("15000");
+    openCheckout("Donation ($150)", 15000);
+    e.preventDefault();
+  });
+  $('#twoHundred').on('click', function(e) {
+    $("#donationAmount").val("20000");
+    openCheckout("Donation ($200)", 20000);
+    e.preventDefault();
+  });
+
+  $('#twoHundredFifty').on('click', function(e) {
+	$("#donationAmount").val("25000");
+	openCheckout("Donation ($250)", 25000);
+    e.preventDefault();
+  });
+  $('#fiveHundred').on('click', function(e) {
+    $("#donationAmount").val("50000");
+    openCheckout("Donation ($500)", 50000);
+    e.preventDefault();
+  });
+  $('#thousand').on('click', function(e) {
+    $("#donationAmount").val("100000");
+    openCheckout("Donation ($1000)", 100000);
+    e.preventDefault();
+  });
+
+  function openCheckout(description, amount)
+  {
+    handler.open({
+      name: 'Grafeas Group, Ltd.',
+      image: '/assets/images/logo.png',
+      description: description,
+      amount: amount
+    });
+  }
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
 </script>
