@@ -24,6 +24,8 @@ $ ruby-install ruby 2.5.1
 
 RESTART YOUR SESSION. This next step will not work until you reload your dotfiles (just close your terminal session and restart it, it's faster.)
 
+`cd` to the project directory, then...
+
 ```shell
 $ chruby 2.5.1
 $ gem install bundler
